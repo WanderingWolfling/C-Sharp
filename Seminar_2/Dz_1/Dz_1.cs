@@ -14,9 +14,9 @@ if (text.Length > 3 || text.Length < 3)
 }
 else
 {
-    int find = 2;
+    int find = 1;
     char found_text = text[find];
-    Console.WriteLine($"{found_text} -> трёхзначное число");
+    Console.WriteLine($"{found_text} -> вторая цифра этого числа");
 }
 
 
