@@ -16,11 +16,11 @@ if (num.Length < 5 || num.Length > 5)
 }
 else if (num == rev)
 {
-    Console.WriteLine($"Читай условие задачи, умник");
+    Console.WriteLine($"Это палиндром. (Помолись богу за автора, он так намучался)");
 }
 else
 {
-    Console.WriteLine($"Читай условие задачи, умник");
+    Console.WriteLine($"Это не палиндром.");
 }
 // Console.WriteLine(num == rev ? "палиндром" : "не палиндром");
 
