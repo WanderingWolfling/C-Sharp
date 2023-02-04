@@ -22,7 +22,7 @@ else
 {
     Console.WriteLine($"Это не палиндром.");
 }
-// Console.WriteLine(num == rev ? "палиндром" : "не палиндром");
+
 
 // string ex_1 = "LOL";
 // string ex_2 = "LOL";
