@@ -8,8 +8,21 @@
 
 Console.WriteLine("Введите пятизначное число");
 string num = Console.ReadLine();
-string rev = string.Concat(num.Reverse()); //КАК Я С ЭТИМ НАМУЧАЛСЯ
-Console.WriteLine(num == rev ? "палиндром" : "не палиндром");
+string rev = string.Concat(num.Reverse()); //КАК Я С ЭТИМ НАМУЧАЛСЯ. Обьясните почему оно не работает без контакт, я не понимаю
+
+if (num.Length < 5 || num.Length > 5)
+{
+    Console.WriteLine($"Читай условие задачи, умник");
+}
+else if (num == rev)
+{
+    Console.WriteLine($"Читай условие задачи, умник");
+}
+else
+{
+    Console.WriteLine($"Читай условие задачи, умник");
+}
+// Console.WriteLine(num == rev ? "палиндром" : "не палиндром");
 
 // string ex_1 = "LOL";
 // string ex_2 = "LOL";
