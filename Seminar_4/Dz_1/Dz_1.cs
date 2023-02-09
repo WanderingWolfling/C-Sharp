@@ -11,11 +11,3 @@ System.Console.WriteLine("Введите степень");
 int.TryParse(Console.ReadLine(), out int b);
 
 System.Console.WriteLine(Math.Pow(a, b));
-
-
-
-// while (b <= a)
-// {
-//     System.Console.WriteLine(Math.Pow(b, 3));
-//     b++;
-// }
