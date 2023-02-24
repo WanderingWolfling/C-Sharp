@@ -53,36 +53,29 @@ string TwoDimensionArrayToString(int[,] array)
     return result;
 }
 
-
-if (matrix1.GetLength(1) != matrix2.GetLength(0))
-{
-    Console.WriteLine("Невозможно выполнить умножение матриц");
-}
-else
+int[,] MultyArray(int[,] matrix1, int[,] matrix2)
 {
     int[,] resultMatrix = new int[matrix1.GetLength(0), matrix2.GetLength(1)];
 
-    for (int i = 0; i < matrix1.GetLength(0); i++)
+    if (matrix1.GetLength(1) != matrix2.GetLength(0))
     {
-        for (int j = 0; j < matrix2.GetLength(1); j++)
+        Console.WriteLine("Невозможно выполнить умножение матриц");
+    }
+    else
+    {
+
+        for (int i = 0; i < matrix1.GetLength(0); i++)
         {
-            for (int k = 0; k < matrix1.GetLength(1); k++)
+            for (int j = 0; j < matrix2.GetLength(1); j++)
             {
-                resultMatrix[i, j] += matrix1[i, k] * matrix2[k, j];
+                for (int k = 0; k < matrix1.GetLength(1); k++)
+                {
+                    resultMatrix[i, j] += matrix1[i, k] * matrix2[k, j];
+                }
             }
         }
     }
-
-    Console.WriteLine("Результат умножения двух матриц:");
-
-    for (int i = 0; i < resultMatrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < resultMatrix.GetLength(1); j++)
-        {
-            Console.Write(resultMatrix[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
+    return resultMatrix;
 }
 
 int[,] array_1 = CreateTwoDimensionArray(ReadInt("First Length"), ReadInt("Second Length"));
@@ -91,3 +84,5 @@ int[,] array_2 = CreateTwoDimensionArray(ReadInt("First Length"), ReadInt("Secon
 Console.WriteLine("U create Array!");
 Console.WriteLine(TwoDimensionArrayToString(array_1));
 Console.WriteLine(TwoDimensionArrayToString(array_2));
+int[,] array_multy = MultyArray(array_1, array_2);
+Console.WriteLine(TwoDimensionArrayToString(array_multy));
