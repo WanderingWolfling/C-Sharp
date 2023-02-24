@@ -61,6 +61,14 @@ int[,] array = CreateTwoDimensionArray(ReadInt("First Length"), ReadInt("Second 
 Console.WriteLine(TwoDimensionArrayToString(array));
 //Взято с прошлых дз
 
+// int[,] array = new int[,]
+// {
+//     {1, 4, 7, 2},
+//     {5, 9, 2, 3},
+//     {8, 4, 2, 4},
+//     {1, 1, 1, 1}
+// };
+
 int FindLessRow(int[,] array)
 {
     int minRowIndex = 0;
@@ -82,4 +90,4 @@ int FindLessRow(int[,] array)
     return minRowIndex;
 }
 
-Console.WriteLine($"Строка с наименьшей суммой элементов: {FindLessRow(array) + 1}-я строка");
+Console.WriteLine($"Строка с наименьшей суммой элементов: {FindLessRow(array)}-я строка");
