@@ -5,21 +5,10 @@
 // 27(0, 0, 1) 90(0, 1, 1)
 // 26(1, 0, 1) 55(1, 1, 1)
 
-int ReadInt(string arg)
-{
-    Console.Write($"Input {arg}: ");
-    int result = 0;
-
-    while (!int.TryParse(Console.ReadLine(), out result))
-    {
-        Console.Write("Try again! ");
-    }
-    return result;
-}
-
-int[,,] CreateTwoDimensionArray(int firstLength, int secondLength, int thirdLength)
+int[,,] CreateThreeDimensionArray(int firstLength, int secondLength, int thirdLength)
 {
     int[,,] result = new int[firstLength, secondLength, thirdLength];
+    HashSet<int> usedNumbers = new HashSet<int>();
     Random rand = new Random();
 
     for (int i = 0; i < result.GetLength(0); i++)
@@ -28,7 +17,15 @@ int[,,] CreateTwoDimensionArray(int firstLength, int secondLength, int thirdLeng
         {
             for (int k = 0; k < result.GetLength(2); k++)
             {
-                result[i, j, k] = rand.Next(0, 10);
+                int number = rand.Next(10, 100);
+
+                while (usedNumbers.Contains(number))
+                {
+                    number = rand.Next(10, 100);
+                }
+
+                result[i, j, k] = number;
+                usedNumbers.Add(number);
             }
         }
     }
@@ -36,7 +33,7 @@ int[,,] CreateTwoDimensionArray(int firstLength, int secondLength, int thirdLeng
     return result;
 }
 
-string TwoDimensionArrayToString(int[,,] array)
+string ThreeDimensionArrayToString(int[,,] array)
 {
     string result = string.Empty;
 
@@ -46,18 +43,16 @@ string TwoDimensionArrayToString(int[,,] array)
         {
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                result += $"{array[i, j, k]} ";
+                result += $"{array[i, j, k]}({i},{j},{k}) ";
             }
 
+            result += Environment.NewLine;
         }
-
-        result += Environment.NewLine;
     }
+
     return result;
 }
 
-
-
-int[,,] array = CreateTwoDimensionArray(ReadInt("First Length"), ReadInt("Second Length"), ReadInt("Third Length"));
-Console.WriteLine("U create Array!");
-Console.WriteLine(TwoDimensionArrayToString(array));
+int[,,] threeDimensionArray = CreateThreeDimensionArray(2, 2, 2);
+string arrayString = ThreeDimensionArrayToString(threeDimensionArray);
+Console.WriteLine(arrayString);
